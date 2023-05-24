@@ -133,8 +133,7 @@ function getPetName() {
     return petNames[randomIndex];
 }
 
-function getCities() {
-    function getPetName() {
+function getCity() {
     const cities = [
         "Lleida",
         "Tàrrega",
@@ -199,7 +198,6 @@ function getCities() {
     // Get the random value from the array
     return cities[randomIndex];
 }
-}
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -213,7 +211,7 @@ app.get('/pets', async (req,res) => {
         img: await getPetImage(),
         name: petName.name,
         gender: petName.gender,
-        city: await getCities(),
+        city: await getCity(),
         age: Math.floor(Math.random() * 12) + 1,
     }
     res.send(pet)
