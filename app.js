@@ -133,6 +133,74 @@ function getPetName() {
     return petNames[randomIndex];
 }
 
+function getCities() {
+    function getPetName() {
+    const cities = [
+        "Lleida",
+        "Tàrrega",
+        "Balaguer",
+        "Mollerussa",
+        "Solsona",
+        "Cervera",
+        "La Seu d'Urgell",
+        "Alcarràs",
+        "Agramunt",
+        "Bellpuig",
+        "Tàrrega",
+        "Almacelles",
+        "Tremp",
+        "Les Borges Blanques",
+        "Guissona",
+        "Soses",
+        "Fraga",
+        "Aitona",
+        "Linyola",
+        "Alpicat",
+        "Golmés",
+        "Juneda",
+        "Alcoletge",
+        "Les",
+        "Torrefarrera",
+        "Vielha e Mijaran",
+        "Sant Guim de Freixenet",
+        "Torregrossa",
+        "Tàrrega",
+        "Vilanova de la Barca",
+        "Bell-lloc d'Urgell",
+        "Verdú",
+        "Agramunt",
+        "Torres de Segre",
+        "Les Avellanes i Santa Linya",
+        "Alguaire",
+        "Bellaguarda",
+        "La Granja d'Escarp",
+        "Albesa",
+        "Camarasa",
+        "Vallfogona de Balaguer",
+        "Fulleda",
+        "Arbeca",
+        "Cubells",
+        "Sant Martí de Riucorb",
+        "Sant Llorenç de Morunys",
+        "Vilanova de Segrià",
+        "Vilagrassa",
+        "Puigverd de Lleida",
+        "Els Omellons",
+        "Sidamon",
+        "Vila-sana",
+        "Linyola",
+        "El Palau d'Anglesola",
+        "Vallbona de les Monges"
+        ];
+
+    // Generate a random index
+    const randomIndex = Math.floor(Math.random() * cities.length);
+
+    // Get the random value from the array
+    return cities[randomIndex];
+}
+}
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
@@ -144,7 +212,9 @@ app.get('/pets', async (req,res) => {
     pet = {
         img: await getPetImage(),
         name: petName.name,
-        gender: petName.gender
+        gender: petName.gender,
+        city: await getCities(),
+        age: Math.floor(Math.random() * 12) + 1,
     }
     res.send(pet)
 })
